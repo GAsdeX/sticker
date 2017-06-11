@@ -1,0 +1,38 @@
+<div class="desctop" ng-controller="dashbordCtrl">
+    <div class="top-bar">
+      <div class="change-chat">
+        <input type="text" class="" name="" value="Выбрать Чат">
+      </div>
+
+      <div class="edit-dashbord">
+        <form class="" action="/newcard" method="post">
+          <button type="submit" name="button">Createnew</button>
+        </form>
+        <button type="button" name="button">create</button>
+        <button type="button" name="button">сыс</button>
+        <button type="button" name="button">сыс</button>
+        <button type="button" name="button">сыс</button>
+      </div>
+
+      <div class="user-field">
+
+        <div class="user-wrapper">
+                  ssasda
+        </div>
+
+      </div>
+    </div>
+
+    <div class="deshboard">
+
+      <div class="card" ng-repeat="card in cards" style="background: {{card.style.sticker_color}}; height: {{card.style.sticker_h}}px; width:{{card.style.sticker_w}}px ; top:{{card.style.sticker_top}}px;left:{{card.style.sticker_left}}px">
+        <div class="top-bar">
+          <input type="text" name="" ng-model="card.title.text" style="color:{{card.title.font_color}}; font-size: {{card.title.font_size}}px;" value="{{card.title.text}}">
+        </div>
+        <div class="bottom-bar">
+          <textarea name="name" rows="30" cols="80">{{card.textarea.text}}</textarea>
+        </div>
+
+      </div>
+    </div>
+</div>
