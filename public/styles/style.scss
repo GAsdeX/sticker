@@ -119,3 +119,43 @@ html {
 
 
 }
+
+.auth {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+
+  h1 {
+    display: table;
+    font-family: Helvetica;
+    color: white;
+    margin: 30px auto;
+  }
+
+  .input-wrapper {
+    margin: auto;
+    // height: 300px;
+    width: 300px;
+    background: #369100;
+
+    input, button, a {
+      display: table;
+      font-family: Helvetica;
+      color: black;
+      margin: 30px auto;
+      font-size: 20px;
+      padding: 7px 14px;
+
+    }
+
+    // button {
+    //   padding: 7px 14px;
+    // }
+
+    a {
+      color: white;
+    }
+
+  }
+
+}
