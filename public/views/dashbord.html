@@ -21,14 +21,20 @@
       </div>
     </div>
 
+    <!-- <div class="colours-wrapper">
+      <button class="color" ng-model='font_color' ng-click='setFontColor(cardFactory.card, cardFactory.field, {{'#eee'}})'>
+        Color
+      </button>
+    </div> -->
+
     <div class="deshboard">
 
       <div class="card" ng-repeat="card in cards | filter:seashdashboard" ng-click="setParam(card._id)" ng-mouseup='saveChanges(card._id)' style="background: {{card.style.sticker_color}}; height: {{card.style.sticker_h}}px; width:{{card.style.sticker_w}}px ; top:{{card.style.sticker_top}}px;left:{{card.style.sticker_left}}px">
         <div class="top-bar">
-          <input type="text" name="" ng-model="card.title.text" style="color:{{card.title.font_color}}; font-size: {{card.title.font_size}}px;" value="{{card.title.text}}">
+          <input type="text" name="" ng-click='cardFactory.field = {{'title'}}' ng-model="card.title.text" style="color:{{card.title.font_color}}; font-size: {{card.title.font_size}}px;" value="{{card.title.text}}">
         </div>
         <div class="bottom-bar">
-          <textarea name="name" rows="30" cols="80">{{card.textarea.text}}</textarea>
+          <textarea name="name" ng-click='cardFactory.field = {{'textarea'}}' rows="30" cols="80">{{card.textarea.text}}</textarea>
         </div>
 
       </div>

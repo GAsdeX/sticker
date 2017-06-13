@@ -4,7 +4,8 @@
   DashbordApp.factory('cardFactory',function(){
     return {
       card : NaN,
-      style : NaN
+      style : NaN,
+      field : NaN
     }
   })
 
@@ -92,12 +93,38 @@
           })
     }
 
+
     $scope.setParam = function (id) {      //задать прарметры фабрики указаного элемента
 
       var temp = $scope.getCard(id);
         cardFactory.card = id;
         cardFactory.style = temp;
         console.log(cardFactory.style);
+    }
+
+
+    $scope.setFontColor = function(id, field, color) {  //
+        cardFactory.card[field].color = color;
+    }
+
+    $scope.setFontSize = function(id, field, font_size) {  //
+        cardFactory.card[field].font_size = font_size;
+    }
+
+    $scope.setText = function(id, field, text) {  //
+        cardFactory.card[field].font_size = text;
+    }
+
+    $scope.removeCard = function(id) {  //
+      $http({
+              method: "REMOVE",
+              url: "/changecard/" + id
+          }).then(function mySucces(response) {
+              $scope.getCard = response.data;
+              console.log($scope.getCard);
+          }, function myError(response) {
+              $scope.myWelcome = response.statusText;
+          });
     }
 
 
@@ -187,7 +214,7 @@
 
   DashbordApp.controller('authCtrl', function ($scope,$http,userFactory){
     // console.log($scope.signupdata);
-    $scope.logData = function (){
+      $scope.logData = function (){
       console.log($scope.signupdata);
       console.log($scope.user);
       console.log($scope.pass1);
@@ -197,7 +224,6 @@
 
 
     $scope.verification = function(){
-
 
       $http.post('/registrate' ,{"user":$scope.user,"pass":$scope.pass}).
       then(function(data) {
